@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:prop="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          prop:driverClassName="com.mysql.cj.jdbc.Driver"
+          prop:url="jdbc:mysql://localhost:3306/hr"
+          prop:username="root"
+          prop:password="jets"/>
+
+    <bean id="customerDAO"
+          class="web.dao.impl.CustomerDAOImpl"
+          prop:dataSource-ref="dataSource"
+    />
+    <bean id="customerDAO2"
+          class="web.dao.impl.CustomerDAOImpl2"
+          prop:dataSource-ref="dataSource"
+    />
+
+</beans>
